@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+exec 2>&1
+exec /usr/local/bin/bitcoind -conf=/bitcoin/bitcoin.conf -datadir=/bitcoin/blockchain -chain=regtest
