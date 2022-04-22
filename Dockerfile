@@ -13,7 +13,7 @@ RUN apt update -qq && apt upgrade --no-install-recommends -yqq \
   && mkdir /etc/service/bitcoind \
   && mkdir /etc/service/tor \
   && mkdir /var/lib/tor/http_hs \
-  && chmod 700 /var/lib/tor/http_hs \
+  && chmod 700 /var/lib/tor/http_hs
 
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
