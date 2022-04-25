@@ -1,5 +1,6 @@
 HiddenServiceDir /var/lib/tor/http_hs/
-HiddenServicePort 8096 127.0.0.1:8096
+HiddenServicePort 80 127.0.0.1:8096
 DataDirectory /var/tor
 Log notice file /var/log/tor/notices.log
 Log debug file /var/log/tor/debug.log
+Log info file /var/log/tor/info.log
