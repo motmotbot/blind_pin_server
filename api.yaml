@@ -1,0 +1,73 @@
+swagger: "2.0"
+info:
+  description: "Arctica Pinserver"
+  version: "1.0.0"
+  title: "Arctica Pinserver"
+schemes:
+  - http
+paths:
+  /:
+    get:
+      tags:
+        - "server status"
+      responses:
+        "200":
+          description: "alive"
+  /start_handshake:
+    post:
+      tags:
+        - "authentication"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "parameters"
+          required: true
+          schema:
+            $ref: "#/definitions/PinParameters"
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: "#/definitions/HandshakeResponse"
+  /get_pin:
+    post:
+      tags:
+        - "pin"
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: "#/definitions/PinResponse"
+  /set_pin:
+    post:
+      tags:
+        - "pin"
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: "#/definitions/PinResponse"
+definitions:
+  PinResponse:
+    type: "object"
+    properties:
+      encrypted_key:
+        type: "string"
+      hmac:
+        type: "string"
+  PinParameters:
+    type: "object"
+    properties:
+      cke:
+        type: "string"
+      encrypted_data:
+        type: "string"
+      hmac_encrypted_data:
+        type: "string"
+  HandshakeResponse:
+    type: "object"
+    properties:
+      ske:
+        type: "string"
+      sig:
+        type: "string"
