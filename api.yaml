@@ -17,6 +17,15 @@ paths:
     post:
       tags:
         - "authentication"
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: "#/definitions/HandshakeResponse"
+  /get_pin:
+    post:
+      tags:
+        - "pin"
       parameters:
         - in: "body"
           name: "body"
@@ -28,20 +37,18 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: "#/definitions/HandshakeResponse"
-  /get_pin:
-    post:
-      tags:
-        - "pin"
-      responses:
-        "200":
-          description: ""
-          schema:
             $ref: "#/definitions/PinResponse"
   /set_pin:
     post:
       tags:
         - "pin"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "parameters"
+          required: true
+          schema:
+            $ref: "#/definitions/PinParameters"
       responses:
         "200":
           description: ""
